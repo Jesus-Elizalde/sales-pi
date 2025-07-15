@@ -1,0 +1,70 @@
+############################
+# 1. Python artifacts
+############################
+# Compiled files
+__pycache__/
+*.py[cod]
+*.so
+*.pyd
+*.pyo
+
+# Distribution / build
+build/
+dist/
+*.egg-info/
+.eggs/
+pip-wheel-metadata/
+
+############################
+# 2. Virtual environment
+############################
+# If you named it differently, change the folder name
+venv/
+.env/
+.venv/
+
+############################
+# 3. Flask instance data
+############################
+# Holds per-machine config and your SQLite DB
+instance/
+# If you keep migrations here, allow them back in
+!instance/migrations/
+
+############################
+# 4. Environment & secrets
+############################
+# dotenv files
+.env
+.env.*
+# Flask secret key files
+*.key
+*.pem
+
+############################
+# 5. Logs & debugging
+############################
+*.log
+*.coverage
+*.cover
+htmlcov/
+
+############################
+# 6. IDE / editor files
+############################
+# VS Code
+.vscode/
+# PyCharm
+.idea/
+# Sublime
+*.sublime-workspace
+*.sublime-project
+# Others
+*.swp
+*.swo
+
+############################
+# 7. OS-specific
+############################
+.DS_Store
+Thumbs.db
