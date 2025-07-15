@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy
+from flask_migrate import Migrate 
 from datetime import datetime
 
 app = Flask(__name__)
@@ -12,6 +13,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 # Initialize SQLAlchemy
 db = SQLAlchemy(app)
+migrate = Migrate(app, db) 
 
 # --- Models ---
 
@@ -451,7 +453,6 @@ def delete_inventory_item(item_id):
 
 
 # Instead, at the bottom of your file, before app.run():
-if __name__ == '__main__':
+if __name__ == "__main__":
     with app.app_context():
         db.create_all()
-    app.run(debug=True)
