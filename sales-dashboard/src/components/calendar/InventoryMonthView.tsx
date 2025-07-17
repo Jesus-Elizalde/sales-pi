@@ -1,3 +1,4 @@
+import { parseLocalDate } from "@/lib/utils";
 import type { InventoryEntry } from "@/types/inventory";
 import {
   startOfMonth,
@@ -18,8 +19,8 @@ type MonthViewProps = {
 };
 
 export function InventoryMonthView({ currentDate, selectedDate, onSelectDate, entries, onEntryClick }: MonthViewProps) {
-  const getEntryForDate = (date: Date) =>
-    entries.find((entry) => isSameDay(new Date(entry.date), date));
+   const getEntryForDate = (date: Date) =>
+    entries.find((entry) => isSameDay(parseLocalDate(entry.date), date));
 
   const monthStart = startOfMonth(currentDate);
   const monthEnd = endOfMonth(currentDate);

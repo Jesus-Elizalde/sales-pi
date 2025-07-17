@@ -45,6 +45,7 @@ export function InventoryCalendar() {
 
 
   const { data: entries = [], isLoading, error } = useInventory(activeView, currentDate);
+  console.log("🚀 ~ InventoryCalendar ~ entries:", entries)
 
   const handleEntryClick = (entry: InventoryEntry) => {
     setSelectedEntry(entry);

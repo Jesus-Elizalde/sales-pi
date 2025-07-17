@@ -16,6 +16,7 @@ export default function AddItemForm({ onAdd, onCancel }: Props) {
     name: '',
     price: 0,
     qty: 1,
+    id: 0, // assuming id is auto-generated
   });
 
   const canSave = draft.product_id !== 0 && draft.qty > 0;

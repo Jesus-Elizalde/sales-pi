@@ -1,3 +1,4 @@
+import { parseLocalDate } from "@/lib/utils";
 import type { InventoryEntry } from "@/types/inventory";
 import {
   startOfWeek,
@@ -14,8 +15,8 @@ type WeekViewProps = {
 };
 
 export function InventoryWeekView({ currentDate, entries, onEntryClick }: WeekViewProps) {
-  const getEntryForDate = (date: Date) =>
-    entries.find((entry) => isSameDay(new Date(entry.date), date));
+   const getEntryForDate = (date: Date) =>
+    entries.find((entry) => isSameDay(parseLocalDate(entry.date), date));
 
   const weekStart = startOfWeek(currentDate);
   const weekEnd = endOfWeek(currentDate);
