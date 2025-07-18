@@ -23,6 +23,8 @@ venv/
 .env/
 .venv/
 
+.flaskenv
+
 ############################
 # 3. Flask instance data
 ############################
