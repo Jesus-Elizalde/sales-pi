@@ -12,6 +12,7 @@ import { useInventory } from "@/hooks/useInventory";
 import Spinner, { ErrorBanner } from "./Spinner";
 import { format } from "date-fns";
 import { dateFromYMD } from "@/lib/helpers";
+import MonthlyPdfButton from "./MonthlyPdfButton";
 
 
 export type ViewType = "year" | "month" | "week" | "day";
@@ -73,6 +74,7 @@ export function InventoryCalendar() {
   return (
     <>
       <div className="space-y-4">
+        <MonthlyPdfButton entries={entries} />
         <CalendarHeader
           currentDate={currentDate}
           activeView={activeView}
