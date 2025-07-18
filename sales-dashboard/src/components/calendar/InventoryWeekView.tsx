@@ -1,4 +1,4 @@
-import { parseLocalDate } from "@/lib/utils";
+import { parseLocalDate } from "@/libs/utils";
 import type { InventoryEntry } from "@/types/inventory";
 import {
   startOfWeek,

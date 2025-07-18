@@ -2,7 +2,7 @@ from flask import Blueprint, request, jsonify
 from app.extensions import db
 from app.models import Product
 
-products_bp = Blueprint("products", __name__, url_prefix="/products")
+products_bp = Blueprint("products", __name__, url_prefix="/api/products")
 
 
 @products_bp.post("")

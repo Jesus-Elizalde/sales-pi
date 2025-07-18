@@ -4,7 +4,7 @@ from flask import Blueprint, request, jsonify
 from app.extensions import db
 from app.models import Batch, Entry, Payment
 
-batches_bp = Blueprint("batches", __name__, url_prefix="/batches")
+batches_bp = Blueprint("batches", __name__, url_prefix="/api/batches")
 
 # ---------- helpers ----------
 DATE_FMT = "%Y-%m-%d"

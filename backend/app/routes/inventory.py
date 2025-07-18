@@ -7,7 +7,7 @@ from app.models import Inventory, InventoryEntry, Product
 import io
 import csv
 
-inventory_bp = Blueprint("inventory", __name__, url_prefix="/inventory")
+inventory_bp = Blueprint("inventory", __name__, url_prefix="/api/inventory")
 
 DATE_FMT = "%Y-%m-%d"
 

@@ -1,4 +1,4 @@
-import { Calendar } from "@/components/ui/calendar";
+import { Calendar, CalendarDayButton } from "@/components/ui/calendar";
 import type { InventoryEntry } from "@/types/entry";
 import { eachMonthOfInterval, startOfYear, endOfYear, format, isSameDay } from "date-fns";
 
@@ -24,33 +24,46 @@ export function YearView({ currentDate, selectedDate, onSelectDate, entries, onE
       {months.map((month) => (
         <div key={month.toISOString()} className="border rounded-lg p-3">
           <h3 className="text-sm font-semibold mb-2 text-center">{format(month, "MMMM")}</h3>
-          <Calendar
+           <Calendar
             mode="single"
             selected={selectedDate}
             onSelect={onSelectDate}
             defaultMonth={month}
             className="w-full"
             showOutsideDays={false}
+            required={true}
             components={{
-              IconLeft: () => null,
-              IconRight: () => null,
-              DayContent: ({ date }) => {
-                const entry = getEntryForDate(date);
+              DayButton: ({ children, modifiers, day, ...props }) => {
+                const entry = getEntryForDate(day.date);
                 return (
-                  <div className="relative w-full h-full flex flex-col items-center justify-center p-1">
-                    <span className="text-xs font-medium">{date.getDate()}</span>
-                    {entry && (
-                      <div
-                        className="text-xs text-blue-600 font-semibold cursor-pointer hover:text-blue-800 mt-0.5"
-                        onClick={(e) => {
-                          e.stopPropagation();
+                  // <div className="relative w-full h-full flex flex-col items-center justify-center p-1">
+                  //   <span className="text-xs font-medium">{day.date.getDate()}</span>
+                  //   {entry && (
+                  //     <div
+                  //       className="text-xs text-blue-600 font-semibold cursor-pointer hover:text-blue-800 mt-0.5"
+                  //       onClick={(e) => {
+                  //         e.stopPropagation();
+                  //         onEntryClick(entry);
+                  //       }}
+                  //     >
+                  //       ${entry.total.toFixed(0)}
+                  //     </div>
+                  //   )}
+                  // </div>
+                  <CalendarDayButton day={day} modifiers={modifiers} {...props}>
+                    {children}
+                    {!modifiers.outside && <span> <div
+                      className="text-xs text-blue-600 font-semibold cursor-pointer hover:text-blue-800 mt-0.5"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        if (entry) {
                           onEntryClick(entry);
-                        }}
-                      >
-                        ${entry.totalAmount.toFixed(0)}
-                      </div>
-                    )}
-                  </div>
+                        }
+                      }}
+                    >
+                      {entry ? `$${entry.totalAmount.toFixed(0)}` : ""}
+                    </div></span>}
+                  </CalendarDayButton>
                 );
               },
             }}

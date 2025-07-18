@@ -2,7 +2,7 @@ from flask import Blueprint, request, jsonify
 from app.extensions import db
 from app.models import Entry, Payment
 
-entries_bp = Blueprint("entries", __name__, url_prefix="/entries")
+entries_bp = Blueprint("entries", __name__, url_prefix="/api/entries")
 
 
 @entries_bp.post("")

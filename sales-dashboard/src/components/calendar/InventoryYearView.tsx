@@ -1,5 +1,5 @@
 import { Calendar, CalendarDayButton } from "@/components/ui/calendar";
-import { parseLocalDate } from "@/lib/utils";
+import { parseLocalDate } from "@/libs/utils";
 import type { InventoryEntry } from "@/types/inventory";
 import { eachMonthOfInterval, startOfYear, endOfYear, format, isSameDay } from "date-fns";
 

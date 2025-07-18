@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { inventoryData } from "@/lib/inventory-data";
+import { inventoryData } from "@/libs/inventory-data";
 import { YearView } from "./calendar/YearView";
 import { MonthView } from "./calendar/MonthView";
 import { WeekView } from "./calendar/WeekView";

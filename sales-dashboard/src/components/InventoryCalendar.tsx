@@ -11,7 +11,7 @@ import InventoryEntryDetailsDialog from "./dialogs/InventoryEntryDetailsDialog";
 import { useInventory } from "@/hooks/useInventory";
 import Spinner, { ErrorBanner } from "./Spinner";
 import { format } from "date-fns";
-import { dateFromYMD } from "@/lib/helpers";
+import { dateFromYMD } from "@/libs/helpers";
 import MonthlyPdfButton from "./MonthlyPdfButton";
 
 
