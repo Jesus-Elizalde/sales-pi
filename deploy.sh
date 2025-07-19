@@ -1,27 +1,20 @@
 #!/usr/bin/env bash
-# ────────────────────────────────────────────────────────────
-#  deploy.sh  –  one-click production update on the Raspberry Pi
-# ────────────────────────────────────────────────────────────
-# Project root  : /home/chuy/sales-pi
-# Backend venv  : backend/venv
-# Front-end src : sales-dashboard/
-# Static output : www/
-# Services      : sales-backend (systemd)  + nginx
-# ────────────────────────────────────────────────────────────
+# ────────────────────────────────────────────────
+#  deploy.sh  —  one-command prod update
+# ────────────────────────────────────────────────
 set -euo pipefail
-
-unset GIT_DIR
+unset GIT_DIR                     # avoid bare-repo confusion
 
 ROOT=/home/chuy/sales-pi
 VENV=$ROOT/backend/venv
 FRONT=$ROOT/sales-dashboard
 WWW=$ROOT/www
 
-cd "$ROOT"
+echo "🔄  Pulling latest code…"
+git --work-tree="$ROOT" --git-dir="$ROOT/.git" pull --ff-only
 
-echo "📦  Updating backend dependencies…"
-source "$VENV/bin/activate"
-pip install -r backend/requirements.txt
+echo "📦  Updating backend deps…"
+"$VENV/bin/pip" install -r "$ROOT/backend/requirements.txt"
 
 echo "🛠   Building React dashboard…"
 cd "$FRONT"
