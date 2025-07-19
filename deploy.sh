@@ -3,7 +3,7 @@ set -euo pipefail
 unset GIT_DIR
 
 ROOT=/home/chuy/sales-pi
-VENV=$ROOT/backend/venv
+VENV=/home/chuy/venv-sales
 FRONT=$ROOT/sales-dashboard
 WWW=$ROOT/www
 
