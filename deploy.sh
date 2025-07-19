@@ -8,7 +8,7 @@ unset GIT_DIR                      # prevent bare-repo confusion
 # ─── Paths ─────────────────────────────────────────────────
 ROOT=/home/chuy/sales-pi           # working tree
 VENV=/home/chuy/venv-sales         # venv OUTSIDE the repo
-FRONT=$ROOT/sales-dashboard        # React / Vite source
+FRONT=$ROOT/sales-dashboard        # React / Vite source.
 WWW=$ROOT/www                      # static files served by Nginx
 
 # ─── 1. Check out newest commit into the working tree ─────
