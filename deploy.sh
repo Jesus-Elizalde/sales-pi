@@ -24,6 +24,9 @@ rm -rf "$WWW"
 mkdir  "$WWW"
 cp -r dist/* "$WWW"
 
+echo "📑  Running database migrations…"
+"$VENV/bin/flask" --app backend.app db upgrade
+
 echo "🚀  Restarting services…"
 sudo systemctl restart sales-backend
 sudo systemctl reload nginx
