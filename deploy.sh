@@ -10,6 +10,8 @@
 # ────────────────────────────────────────────────────────────
 set -euo pipefail
 
+unset GIT_DIR
+
 ROOT=/home/chuy/sales-pi
 VENV=$ROOT/backend/venv
 FRONT=$ROOT/sales-dashboard
