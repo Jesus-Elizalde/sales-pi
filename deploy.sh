@@ -17,9 +17,7 @@ VENV=$ROOT/backend/venv
 FRONT=$ROOT/sales-dashboard
 WWW=$ROOT/www
 
-echo "🔄  Pulling latest code…"
 cd "$ROOT"
-git pull --ff-only
 
 echo "📦  Updating backend dependencies…"
 source "$VENV/bin/activate"
