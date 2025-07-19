@@ -7,6 +7,8 @@ VENV=/home/chuy/venv-sales
 FRONT=$ROOT/sales-dashboard
 WWW=$ROOT/www
 
+export PYTHONPATH="$ROOT/backend"
+
 echo "🔄  Checking out latest commit…"
 git --work-tree="$ROOT" --git-dir="$ROOT/.git" fetch origin main
 git --work-tree="$ROOT" --git-dir="$ROOT/.git" reset --hard origin/main
@@ -25,7 +27,7 @@ mkdir  "$WWW"
 cp -r dist/* "$WWW"
 
 echo "📑  Running database migrations…"
-"$VENV/bin/flask" --app backend.app db upgrade
+PYTHONPATH="$ROOT/backend" "$VENV/bin/flask" --app backend.app db upgrade
 
 echo "🚀  Restarting services…"
 sudo systemctl restart sales-backend
